@@ -1,1 +1,32 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reindirizzamento...</title>
+    <script>
+        window.onload = function() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            
+            // Link agli store
+            var androidUrl = "https://play.google.com/store/apps/details?id=it.zerounoesse.ciafiscoapp";
+            var iosUrl = "https://apps.apple.com/us/app/caf-cia/id1304275856?l=it&ls=1";
+
+            // Controlla il dispositivo e reindirizza
+            if (/android/i.test(userAgent)) {
+                window.location.href = androidUrl;
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = iosUrl;
+            } else {
+                document.body.innerHTML = '<p>Non siamo riusciti a identificare il dispositivo. <br>' +
+                '<a href="' + iosUrl + '">Vai all\'App Store</a> | ' +
+                '<a href="' + androidUrl + '">Vai al Google Play</a></p>';
+            }
+        };
+    </script>
+</head>
+<body>
+    <p>Reindirizzamento in corso...</p>
+</body>
+</html>
 
